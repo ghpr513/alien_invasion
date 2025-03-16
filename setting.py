@@ -11,6 +11,7 @@ class Settings:
 
         # 飞船的设置
         self.ship_speed = 3.5
+        self.ship_limit = 3
 
         # 子弹设置
         self.bullet_speed = 2.0
@@ -24,3 +25,4 @@ class Settings:
         self.fleet_drop_speed = 50
         # fleet_direction 为 1 表示向右移动，为 -1 表示向左移动
         self.fleet_direction =1
+
