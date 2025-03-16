@@ -30,8 +30,8 @@ class AlienInvasion:
 
         self._creat_fleet()
 
-        # 游戏启动后处于活动状态
-        self.game_active = True
+        # 游戏一开始处于非活动状态
+        self.game_active = False
 
     def run_game(self):
         """开始游戏的主循环"""
