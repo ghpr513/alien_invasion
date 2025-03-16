@@ -135,6 +135,10 @@ class AlienInvasion:
         """检查是否有外星人位于屏幕边缘，并更新外星舰队中所有外星人的位置"""
         self._check_fleet_edges()
         self.aliens.update()
+
+        # 检测外星人和飞船之间的碰撞
+        if pygame.sprite.spritecollideany(self.ship, self.aliens):
+            print("Ship hit!!!")
     
     def _update_screen(self):
         """更新屏幕上的图像，并且切换到新屏幕"""
