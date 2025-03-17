@@ -81,6 +81,9 @@ class AlienInvasion:
 
             # 隐藏光标
             pygame.mouse.set_visible(False)
+
+            # 还原游戏设置
+            self.settings.initialize_dynamic_settings()
     
     def _check_keydown_events(self, event):
         """响应按下"""
