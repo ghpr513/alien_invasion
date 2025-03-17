@@ -19,7 +19,8 @@ class Scoreboard:
 
     def prep_score(self):
         """将得分渲染为图像"""
-        score_str = str(self.stats.score)
+        rounded_score = round(self.stats.score, -1)
+        score_str = f"{rounded_score:,}"
         self.score_image = self.font.render(score_str, True,self.text_color,
                                             self.settings.bg_color)
 
@@ -31,4 +32,4 @@ class Scoreboard:
     def show_score(self):
         """在屏幕上显示得分"""
         self.screen.blit(self.score_image, self.score_rect)
-          
+
