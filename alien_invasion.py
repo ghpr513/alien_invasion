@@ -5,6 +5,7 @@ import pygame
 
 from setting import Settings
 from game_stats import GameStats
+from scoreboard import Scoreboard
 from button import Button
 from ship import Ship
 from bullet import Bullet
@@ -22,8 +23,9 @@ class AlienInvasion:
         self.screen = pygame.display.set_mode((1200,800))
         pygame.display.set_caption("Alien Invasion")
 
-        # 创建一个用于储存游戏统计信息的实例
+        # 创建一个用于储存游戏统计信息的实例，并创建记分牌
         self.stats = GameStats(self)
+        self.sb = Scoreboard(self)
 
         self.ship = Ship(self)
         self.bullets = pygame.sprite.Group()
@@ -220,6 +222,9 @@ class AlienInvasion:
             bullet.draw_bullet()
         self.ship.blitme()
         self.aliens.draw(self.screen)
+
+        # 显示得分
+        self.sb.show_score()
 
         # 如果游戏处于非活动状态，就绘制 Play 按钮
         if not self.game_active:
