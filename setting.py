@@ -31,6 +31,9 @@ class Settings:
         self.bullet_speed = 1.5
         self.alien_speed = 1.0
 
+        # 记分设置
+        self.alien_points = 50
+
         # fleet_direction 为 1 表示向右移动，为 -1 表示向左移动
         self.fleet_direction = 1
 
