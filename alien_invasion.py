@@ -66,7 +66,17 @@ class AlienInvasion:
     def _check_play_button(self, mouse_pos):
         """在玩家单击 Play 按钮时开始新游戏"""
         if self.play_button.rect.collidepoint(mouse_pos):
+            # 重置游戏的统计信息
+            self.stats.reset_stats()
             self.game_active = True
+
+            # 清空外星人列表和子弹列表
+            self.bullets.empty()
+            self.aliens.empty()
+
+            # 创建一个新的外星舰队，并将飞船放在屏幕底部的中央
+            self._creat_fleet()
+            self.ship.center_ship()
     
     def _check_keydown_events(self, event):
         """响应按下"""
