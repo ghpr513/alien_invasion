@@ -58,8 +58,16 @@ class AlienInvasion:
             elif event.type == pygame.KEYDOWN:
                  self._check_keydown_events(event)
             elif event.type == pygame.KEYUP:
-                 self._check_keyup_events(event)       
+                 self._check_keyup_events(event) 
+            elif event.type == pygame.MOUSEBUTTONDOWN:
+                mouse_pos = pygame.mouse.get_pos()
+                self._check_play_button(mouse_pos)      
 
+    def _check_play_button(self, mouse_pos):
+        """在玩家单击 Play 按钮时开始新游戏"""
+        if self.play_button.rect.collidepoint(mouse_pos):
+            self.game_active = True
+    
     def _check_keydown_events(self, event):
         """响应按下"""
         if event.key == pygame.K_RIGHT:
@@ -184,7 +192,7 @@ class AlienInvasion:
             sleep(0.5)
         else:
             self.game_active = False
-    
+
     def _update_screen(self):
         """更新屏幕上的图像，并且切换到新屏幕"""
         self.screen.fill(self.settings.bg_color)
