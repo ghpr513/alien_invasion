@@ -71,6 +71,7 @@ class AlienInvasion:
         if button_clicked and not self.game_active:
             # 重置游戏的统计信息
             self.stats.reset_stats()
+            self.sb.prep_score()
             self.game_active = True
 
             # 清空外星人列表和子弹列表
